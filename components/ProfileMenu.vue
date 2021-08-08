@@ -1,0 +1,117 @@
+<template>
+  <v-menu
+    v-model="menu"
+    :close-on-content-click="false"
+    :nudge-width="200"
+    offset-x
+    offset-y
+  >
+    <template #activator="{ on, attrs }">
+      <v-btn
+        dark
+        text
+        color="primary"
+        v-bind="attrs"
+        v-on="on"
+      >
+        <v-icon>
+          mdi-account-circle
+        </v-icon>
+        <v-icon
+          right
+        >
+          mdi-chevron-down
+        </v-icon>
+      </v-btn>
+    </template>
+
+    <v-card>
+      <v-list>
+        <v-list-item>
+          <v-list-item-avatar>
+            <img
+              src="https://cdn.vuetifyjs.com/images/john.jpg"
+              alt="John"
+            >
+          </v-list-item-avatar>
+
+          <v-list-item-content>
+            <v-list-item-title>Distem</v-list-item-title>
+            <v-list-item-subtitle>Founder of Warframe.Helper</v-list-item-subtitle>
+          </v-list-item-content>
+
+          <v-list-item-action>
+            <v-btn
+              icon
+              :to="{name:'settings'}"
+            >
+              <v-icon>settings</v-icon>
+            </v-btn>
+          </v-list-item-action>
+        </v-list-item>
+      </v-list>
+
+      <v-divider />
+
+      <v-list>
+        <v-list-item>
+          <v-list-item-action>
+            <v-switch
+              v-model="$vuetify.theme.dark"
+              color="purple"
+            />
+          </v-list-item-action>
+          <v-list-item-title>Dark Mode</v-list-item-title>
+        </v-list-item>
+
+        <v-list-item>
+          <v-list-item-action>
+            <v-switch
+              v-model="hints"
+              color="purple"
+            />
+          </v-list-item-action>
+          <v-list-item-title>Enable hints</v-list-item-title>
+        </v-list-item>
+      </v-list>
+
+      <v-card-actions>
+        <v-spacer />
+
+        <v-btn
+          text
+          @click="onLogout"
+        >
+          Log out
+        </v-btn>
+        <v-btn
+          color="primary"
+          @click="menu = false"
+        >
+          Save
+        </v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-menu>
+</template>
+
+<script>
+export default {
+  name: 'ProfileMenu',
+  data: () => ({
+    fav: true,
+    menu: false,
+    darkMode: false,
+    hints: true
+  }),
+  methods: {
+    async onLogout () {
+      await this.$apolloHelpers.onLogout()
+      this.$router.push({ name: 'auth-signin' })
+    }
+  }
+}
+</script>
+
+<style scoped>
+</style>

@@ -9,6 +9,7 @@
         </v-card-title>
         <v-card-text>
           <v-form>
+            <v-text-field v-model="user.name" label="Name" outlined />
             <v-text-field v-model="user.email" label="Email" outlined />
             <v-text-field
               v-model="user.password"
@@ -21,15 +22,15 @@
           </v-form>
         </v-card-text>
         <v-card-actions>
-          <v-btn color="primary" text :to="{name:'auth-signup'}">
-            Sign Up
+          <v-btn color="primary" text :to="{name:'auth-signin'}">
+            Sign In
           </v-btn>
           <v-spacer />
           <v-btn text>
             Cancel
           </v-btn>
           <v-btn color="primary" @click="onSubmit">
-            Sign In
+            Sign Up
           </v-btn>
         </v-card-actions>
       </v-card>
@@ -38,15 +39,15 @@
 </template>
 
 <script>
-import createAuth from '~/gql/mutations/create-auth.gql'
-
+import createUser from '~/gql/mutations/create-user.gql'
 export default {
-  name: 'Signin',
+  name: 'Signup',
   layout: 'auth',
   data () {
     return {
       showPassword: false,
       user: {
+        name: '',
         email: '',
         password: ''
       }
@@ -54,14 +55,13 @@ export default {
   },
   methods: {
     async onSubmit () {
-      const createAuthInput = this.user
+      const createUserInput = this.user
       try {
-        const { data } = await this.$apollo.mutate({
-          mutation: createAuth,
-          variables: { createAuthInput }
+        await this.$apollo.mutate({
+          mutation: createUser,
+          variables: { createUserInput }
         })
-        this.$apolloHelpers.onLogin(data.createAuth.access_token)
-        this.$router.push({ name: 'index' })
+        this.$router.push({ name: 'auth-signin' })
       } catch (e) {
       }
     }

@@ -1,19 +1,17 @@
 <template>
-  <v-app dark>
+  <v-app>
     <v-navigation-drawer
       v-model="drawer"
       :mini-variant="miniVariant"
-      :clipped="clipped"
-      fixed
+      :clipped="$vuetify.breakpoint.lgAndUp"
       app
     >
-      <v-list>
+      <v-list nav dense>
         <v-list-item
           v-for="(item, i) in items"
           :key="i"
-          :to="item.to"
-          router
-          exact
+          :to="{name:item.to}"
+          nuxt
         >
           <v-list-item-action>
             <v-icon>{{ item.icon }}</v-icon>
@@ -25,9 +23,8 @@
       </v-list>
     </v-navigation-drawer>
     <v-app-bar
-      :clipped-left="clipped"
-      fixed
       app
+      :clipped-left="$vuetify.breakpoint.lgAndUp"
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-btn
@@ -36,82 +33,73 @@
       >
         <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
       </v-btn>
-      <v-btn
-        icon
-        @click.stop="clipped = !clipped"
-      >
-        <v-icon>mdi-application</v-icon>
-      </v-btn>
-      <v-btn
-        icon
-        @click.stop="fixed = !fixed"
-      >
-        <v-icon>mdi-minus</v-icon>
-      </v-btn>
-      <v-toolbar-title v-text="title" />
+      <v-toolbar-title>
+        <nuxt-link :to="{name:'index'}" class="text-color--gradient">
+          {{ title }}
+        </nuxt-link>
+      </v-toolbar-title>
       <v-spacer />
-      <v-btn
-        icon
-        @click.stop="rightDrawer = !rightDrawer"
-      >
-        <v-icon>mdi-menu</v-icon>
-      </v-btn>
+      <profile-menu />
     </v-app-bar>
     <v-main>
-      <v-container>
-        <Nuxt />
-      </v-container>
+      <transition
+        name="fade"
+        mode="out-in"
+      >
+        <nuxt />
+      </transition>
     </v-main>
-    <v-navigation-drawer
-      v-model="rightDrawer"
-      :right="right"
-      temporary
-      fixed
-    >
-      <v-list>
-        <v-list-item @click.native="right = !right">
-          <v-list-item-action>
-            <v-icon light>
-              mdi-repeat
-            </v-icon>
-          </v-list-item-action>
-          <v-list-item-title>Switch drawer (click me)</v-list-item-title>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
-    <v-footer
-      :absolute="!fixed"
-      app
-    >
-      <span>&copy; {{ new Date().getFullYear() }}</span>
+    <v-footer>
+      <div class="text-center">
+        {{ new Date().getFullYear() }}
+      </div>
     </v-footer>
   </v-app>
 </template>
 
 <script>
+import ProfileMenu from '~/components/ProfileMenu'
 export default {
-  data () {
-    return {
-      clipped: false,
-      drawer: false,
-      fixed: false,
-      items: [
-        {
-          icon: 'mdi-apps',
-          title: 'Welcome',
-          to: '/'
-        },
-        {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire'
-        }
-      ],
-      miniVariant: false,
-      right: true,
-      rightDrawer: false,
-      title: 'Vuetify.js'
-    }
-  }
+  components: {
+    ProfileMenu
+  },
+  middleware: 'authenticated',
+  data: () => ({
+    icons: [
+      'mdi-facebook',
+      'mdi-twitter',
+      'mdi-linkedin',
+      'mdi-instagram'
+    ],
+    clipped: false,
+    drawer: false,
+    fixed: false,
+    items: [
+      {
+        icon: 'article',
+        title: 'News',
+        to: 'news'
+      },
+      {
+        icon: 'store',
+        title: 'Market',
+        to: 'market'
+      },
+      {
+        icon: 'mdi-wikipedia',
+        title: 'Wiki',
+        to: 'wiki'
+      },
+      {
+        icon: 'storefront',
+        title: 'Shelter',
+        to: 'shelter'
+      }
+    ],
+    miniVariant: false,
+    right: true,
+    rightDrawer: false,
+    title: 'Warframe.Helper'
+  })
 }
 </script>

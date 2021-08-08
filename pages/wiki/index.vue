@@ -1,9 +1,7 @@
 <template>
   <v-container>
     <v-row>
-      <v-col>
-        indexpage
-      </v-col>
+      <v-col>Wiki</v-col>
     </v-row>
   </v-container>
 </template>

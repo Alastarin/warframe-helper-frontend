@@ -2,7 +2,7 @@
   <v-container>
     <v-row>
       <v-col>
-        indexpage
+        market
       </v-col>
     </v-row>
   </v-container>
