@@ -1,7 +1,7 @@
 export default {
   target: process.env.NODE_ENV === 'production' ? 'static' : 'server',
   router: {
-    base: process.env.NODE_ENV === 'production' ? '/warframe-helper/' : '/'
+    base: process.env.NODE_ENV === 'production' ? '/pages/warframe-helper/' : '/'
   },
   server: {
     host: 'localhost',
