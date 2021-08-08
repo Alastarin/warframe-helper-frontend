@@ -54,5 +54,6 @@ jobs:
           token: ${{secrets.ACCESS_TOKEN}}
           branch: main
           folder: dist
+          target-folder: warframe-helper
 
 
