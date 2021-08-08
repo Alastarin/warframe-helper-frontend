@@ -1,4 +1,8 @@
 export default {
+  target: process.env.NODE_ENV === 'production' ? 'static' : 'server',
+  router: {
+    base: process.env.NODE_ENV === 'production' ? '/pages/' : '/'
+  },
   server: {
     host: 'localhost',
     port: 8000
