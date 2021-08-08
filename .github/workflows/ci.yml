@@ -52,7 +52,7 @@ jobs:
         with:
           repository-name: Alastarin/pages
           token: ${{secrets.ACCESS_TOKEN}}
-          branch: gh-pages
+          branch: main
           folder: dist
 
 
