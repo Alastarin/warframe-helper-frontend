@@ -1,5 +1,7 @@
 mutation createAuth ($createAuthInput:CreateAuthInput!){
   createAuth(createAuthInput:$createAuthInput){
-    access_token
+    accessToken
+    expiresIn
+    userName
   }
 }

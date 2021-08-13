@@ -9,11 +9,19 @@
         </v-card-title>
         <v-card-text>
           <v-form>
-            <v-text-field v-model="user.email" label="Email" outlined />
+            <v-text-field
+              v-model="user.email"
+              label="Email"
+              outlined
+              :error="hasValidationError('email')"
+              :error-messages="hasValidationError('email',true)"
+            />
             <v-text-field
               v-model="user.password"
               label="Password"
               outlined
+              :error="hasValidationError('password')"
+              :error-messages="hasValidationError('password',true)"
               :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
               :type="showPassword ? 'text' : 'password'"
               @click:append="showPassword = !showPassword"
@@ -25,7 +33,7 @@
             Sign Up
           </v-btn>
           <v-spacer />
-          <v-btn text>
+          <v-btn text @click="clearErrors">
             Cancel
           </v-btn>
           <v-btn color="primary" @click="onSubmit">
@@ -60,7 +68,8 @@ export default {
           mutation: createAuth,
           variables: { createAuthInput }
         })
-        this.$apolloHelpers.onLogin(data.createAuth.access_token)
+        this.$apolloHelpers.onLogin(data.createAuth.accessToken)
+        await this.openSnackbar({ text: `Glad to see you again, ${data.createAuth.userName}`, type: 'success' })
         this.$router.push({ name: 'index' })
       } catch (e) {
       }

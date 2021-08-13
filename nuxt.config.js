@@ -29,6 +29,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    '~/plugins/global.mixin',
     {
       src: '~/plugins/video-background',
       ssr: false
@@ -55,10 +56,9 @@ export default {
     '@nuxtjs/apollo'
   ],
   apollo: {
+    errorHandler: '~/plugins/apollo-error-handler.js',
     clientConfigs: {
-      default: {
-        httpEndpoint: 'http://localhost:3000/graphql'
-      }
+      default: '~/plugins/apollo.js'
     },
     tokenName: 'access_token'
   },
@@ -82,7 +82,8 @@ export default {
   build: {
     babel: {
       plugins: [
-        ['@babel/plugin-proposal-private-property-in-object', { loose: true }]
+        ['@babel/plugin-proposal-private-property-in-object', { loose: true }],
+        '@babel/plugin-proposal-optional-chaining'
       ]
     }
   }
