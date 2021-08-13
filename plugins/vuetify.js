@@ -16,7 +16,7 @@ export default {
   customVariables: ['~/assets/scss/variables.scss'],
 
   theme: {
-    dark: false,
+    dark: true,
     themes: {
       dark: {
         primary: colors.blue.darken2,

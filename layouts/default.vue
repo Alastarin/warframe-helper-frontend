@@ -1,5 +1,6 @@
 <template>
   <v-app>
+    <Snackbar />
     <v-navigation-drawer
       v-model="drawer"
       :mini-variant="miniVariant"
@@ -49,7 +50,7 @@
         <nuxt />
       </transition>
     </v-main>
-    <v-footer>
+    <v-footer app>
       <div class="text-center">
         {{ new Date().getFullYear() }}
       </div>
@@ -58,10 +59,12 @@
 </template>
 
 <script>
+import Snackbar from '../components/Snackbar'
 import ProfileMenu from '~/components/ProfileMenu'
 export default {
   components: {
-    ProfileMenu
+    ProfileMenu,
+    Snackbar
   },
   middleware: 'authenticated',
   data: () => ({

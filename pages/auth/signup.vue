@@ -9,12 +9,26 @@
         </v-card-title>
         <v-card-text>
           <v-form>
-            <v-text-field v-model="user.name" label="Name" outlined />
-            <v-text-field v-model="user.email" label="Email" outlined />
+            <v-text-field
+              v-model="user.name"
+              label="Name"
+              outlined
+              :error="hasValidationError('name')"
+              :error-messages="hasValidationError('name',true)"
+            />
+            <v-text-field
+              v-model="user.email"
+              label="Email"
+              outlined
+              :error="hasValidationError('email')"
+              :error-messages="hasValidationError('email',true)"
+            />
             <v-text-field
               v-model="user.password"
               label="Password"
               outlined
+              :error="hasValidationError('password')"
+              :error-messages="hasValidationError('password',true)"
               :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
               :type="showPassword ? 'text' : 'password'"
               @click:append="showPassword = !showPassword"
@@ -26,7 +40,7 @@
             Sign In
           </v-btn>
           <v-spacer />
-          <v-btn text>
+          <v-btn text @click="clearErrors">
             Cancel
           </v-btn>
           <v-btn color="primary" @click="onSubmit">
