@@ -1,5 +1,6 @@
 <template>
-  <v-card>
+  <v-card hover>
+    <v-img :src="background" height="164" />
     <v-card-title>
       Awesomse shelter
     </v-card-title>
@@ -15,6 +16,12 @@
 </template>
 <script>
 export default {
-  name: 'ShelterCard'
+  name: 'ShelterCard',
+  props: {
+    background: {
+      type: [String],
+      required: true
+    }
+  }
 }
 </script>
