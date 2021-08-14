@@ -3,25 +3,16 @@
     <v-row>
       <v-col>
         <page-banner>
-          <v-card-title>
-            This is Awesome Shelter
-          </v-card-title>
-          <v-card-text>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias architecto, at cupiditate facere harum iste
-            iusto laboriosam minus mollitia qui reiciendis reprehenderit sapiente sunt! A aspernatur delectus dicta in
-            totam.
-          </v-card-text>
-          <v-card-actions>
-            <v-btn color="primary">
-              Visit this awesome Shelter
-            </v-btn>
-          </v-card-actions>
+          <div class="display-4">
+            Shelter's
+          </div>
         </page-banner>
       </v-col>
     </v-row>
+    <v-subheader>Most popular shelter's</v-subheader>
     <v-row>
       <v-col v-for="i in 3" :key="i" cols="4">
-        <shelter-card />
+        <shelter-card background="/images/Mesa.jpg" />
       </v-col>
     </v-row>
   </v-container>

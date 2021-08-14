@@ -1,5 +1,5 @@
 <template>
-  <v-card hover>
+  <v-card hover class="page-banner__wrapper">
     <v-parallax
       :height="height"
       :src="src"
@@ -29,5 +29,11 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+.page{
+  &-banner{
+    &__wrapper{
+    }
+  }
+}
 </style>

@@ -43,7 +43,7 @@
           <v-list-item-action>
             <v-btn
               icon
-              :to="{name:'settings'}"
+              :to="{name:'profile'}"
             >
               <v-icon>settings</v-icon>
             </v-btn>
