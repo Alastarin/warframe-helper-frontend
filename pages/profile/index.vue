@@ -20,8 +20,13 @@
               </v-col>
             </v-row>
             <v-row>
-              <v-col>
-                asf
+              <v-col cols="12">
+                <span>Last seen:</span>
+                <span>3 minutes ago</span>
+              </v-col>
+              <v-col cols="12">
+                <span>Name:</span>
+                <span>Alexandr</span>
               </v-col>
             </v-row>
           </v-card-text>

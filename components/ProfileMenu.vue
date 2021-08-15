@@ -57,7 +57,7 @@
         <v-list-item>
           <v-list-item-action>
             <v-switch
-              v-model="$vuetify.theme.dark"
+              v-model="darkTheme"
               color="purple"
             />
           </v-list-item-action>
@@ -96,6 +96,8 @@
 </template>
 
 <script>
+import { mapActions, mapState } from 'vuex'
+
 export default {
   name: 'ProfileMenu',
   data: () => ({
@@ -104,7 +106,23 @@ export default {
     darkMode: false,
     hints: true
   }),
+  computed: {
+    ...mapState('settings', ['dark']),
+    darkTheme: {
+      get () {
+        return this.dark
+      },
+      set (newVal) {
+        this.$vuetify.theme.dark = newVal
+        this.setDark(newVal)
+      }
+    }
+  },
+  created () {
+    this.$vuetify.theme.dark = this.dark
+  },
   methods: {
+    ...mapActions('settings', ['setDark']),
     async onLogout () {
       await this.$apolloHelpers.onLogout()
       this.$router.push({ name: 'auth-signin' })
