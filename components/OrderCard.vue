@@ -3,7 +3,9 @@
     hover
   >
     <v-list-item dense>
-      <v-list-item-avatar color="grey" />
+      <v-list-item-avatar>
+        <v-img src="https://picsum.photos/200" />
+      </v-list-item-avatar>
       <v-list-item-content>
         <v-list-item-title>
           Vauban Prime Set
@@ -12,7 +14,7 @@
           Kurt Wagner
         </v-list-item-subtitle>
         <div class="text-caption">
-          <v-row dense justify="space-between">
+          <v-row dense>
             <v-col cols="auto">
               <v-icon small>
                 attach_money
@@ -43,6 +45,7 @@
         <v-col cols="auto">
           <v-btn
             small
+            color="primary"
           >
             <v-icon small>
               chat
@@ -52,6 +55,7 @@
         <v-col cols="auto">
           <v-btn
             small
+            color="secondary"
           >
             <v-icon small>
               file_copy
