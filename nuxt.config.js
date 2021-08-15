@@ -53,7 +53,8 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
-    '@nuxtjs/apollo'
+    '@nuxtjs/apollo',
+    'cookie-universal-nuxt'
   ],
   apollo: {
     errorHandler: '~/plugins/apollo-error-handler.js',

@@ -3,7 +3,7 @@
     <Snackbar />
     <v-navigation-drawer
       v-model="drawer"
-      :mini-variant="miniVariant"
+      :mini-variant="miniMenuVariant"
       :clipped="$vuetify.breakpoint.lgAndUp"
       app
     >
@@ -30,9 +30,9 @@
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-btn
         icon
-        @click.stop="miniVariant = !miniVariant"
+        @click.stop="setMinMenu(!miniMenuVariant)"
       >
-        <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
+        <v-icon>mdi-{{ `chevron-${miniMenuVariant ? 'right' : 'left'}` }}</v-icon>
       </v-btn>
       <v-toolbar-title>
         <nuxt-link :to="{name:'index'}" class="text-color--gradient">
@@ -59,9 +59,11 @@
 </template>
 
 <script>
+import { mapActions, mapState } from 'vuex'
 import Snackbar from '../components/Snackbar'
 import ProfileMenu from '~/components/ProfileMenu'
 export default {
+  name: 'DefaultLayout',
   components: {
     ProfileMenu,
     Snackbar
@@ -99,10 +101,16 @@ export default {
         to: 'shelter'
       }
     ],
-    miniVariant: false,
     right: true,
     rightDrawer: false,
     title: 'Warframe.Helper'
-  })
+  }),
+  computed: {
+    ...mapState('settings', ['miniMenuVariant'])
+  },
+  methods: {
+    ...mapActions('settings', ['setMinMenu'])
+
+  }
 }
 </script>
