@@ -1,16 +1,23 @@
 <template>
-  <v-container>
+  <v-container fluid>
     <v-row>
       <v-col>
-        indexpage
+        <page-banner height="256">
+          Main Page
+        </page-banner>
       </v-col>
     </v-row>
   </v-container>
 </template>
 
 <script>
+import PageBanner from '../components/PageBanner'
+
 export default {
-  name: 'Index'
+  name: 'Index',
+  components: {
+    PageBanner
+  }
 }
 </script>
 
