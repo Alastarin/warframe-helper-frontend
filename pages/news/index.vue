@@ -19,7 +19,7 @@
       </v-col>
     </v-row>
     <v-row>
-      <v-col cols="8">
+      <v-col >
         <v-row>
           <v-col v-for="i in 3" :key="i" cols="12">
             <v-card>
@@ -28,9 +28,19 @@
           </v-col>
         </v-row>
       </v-col>
-      <v-col cols="4">
+      <v-col cols="auto">
         <v-card>
-          <v-card-text>Somw widget</v-card-text>
+          <v-card-text>
+            <v-row justify="center">
+              <v-col cols="auto">
+                <v-time-picker
+                  format="ampm"
+                  no-title
+                  readonly
+                />
+              </v-col>
+            </v-row>
+          </v-card-text>
         </v-card>
       </v-col>
     </v-row>

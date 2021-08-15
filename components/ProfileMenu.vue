@@ -29,14 +29,11 @@
       <v-list>
         <v-list-item>
           <v-list-item-avatar>
-            <img
-              src="https://cdn.vuetifyjs.com/images/john.jpg"
-              alt="John"
-            >
+            <img src="https://picsum.photos/200" alt="Me">
           </v-list-item-avatar>
 
           <v-list-item-content>
-            <v-list-item-title>Distem</v-list-item-title>
+            <v-list-item-title>Alexandr</v-list-item-title>
             <v-list-item-subtitle>Founder of Warframe.Helper</v-list-item-subtitle>
           </v-list-item-content>
 
@@ -62,16 +59,6 @@
             />
           </v-list-item-action>
           <v-list-item-title>Dark Mode</v-list-item-title>
-        </v-list-item>
-
-        <v-list-item>
-          <v-list-item-action>
-            <v-switch
-              v-model="hints"
-              color="purple"
-            />
-          </v-list-item-action>
-          <v-list-item-title>Enable hints</v-list-item-title>
         </v-list-item>
       </v-list>
 
@@ -102,9 +89,7 @@ export default {
   name: 'ProfileMenu',
   data: () => ({
     fav: true,
-    menu: false,
-    darkMode: false,
-    hints: true
+    menu: false
   }),
   computed: {
     ...mapState('settings', ['dark']),
