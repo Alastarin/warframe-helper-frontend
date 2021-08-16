@@ -11,6 +11,7 @@
           v-model="user.email"
           label="Email"
           outlined
+          append-icon="mdi-email"
           :error="hasValidationError('email')"
           :error-messages="hasValidationError('email',true)"
           @keyup.enter="onSubmit"
