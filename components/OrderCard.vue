@@ -14,29 +14,30 @@
           Kurt Wagner
         </v-list-item-subtitle>
         <div class="text-caption">
-          <v-row dense>
+          <v-row dense align="center">
             <v-col cols="auto">
               <v-icon small>
                 attach_money
               </v-icon>
-              490
+              <span>490</span>
             </v-col>
             <v-col cols="auto">
               <v-icon small>
                 filter_1
               </v-icon>
-              1
+              <span>1</span>
             </v-col>
             <v-col cols="auto">
               <v-icon small>
                 military_tech
               </v-icon>
-              Rank 5 of 5
+              <span>Rank 5 of 5</span>
             </v-col>
           </v-row>
         </div>
       </v-list-item-content>
     </v-list-item>
+    <v-divider />
     <v-card-actions>
       <v-row
         dense

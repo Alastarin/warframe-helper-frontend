@@ -11,6 +11,7 @@
           v-model="user.name"
           label="Name"
           outlined
+          append-icon="mdi-account"
           :error="hasValidationError('name')"
           :error-messages="hasValidationError('name',true)"
           @keyup.enter="onSubmit"
@@ -18,6 +19,7 @@
         <v-text-field
           v-model="user.email"
           label="Email"
+          append-icon="mdi-email"
           outlined
           :error="hasValidationError('email')"
           :error-messages="hasValidationError('email',true)"

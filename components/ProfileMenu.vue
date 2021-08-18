@@ -1,22 +1,22 @@
 <template>
   <v-menu
     v-model="menu"
-    :close-on-content-click="false"
+    :close-on-content-click="true"
     :nudge-width="200"
+    max-width="300"
     offset-x
     offset-y
   >
     <template #activator="{ on, attrs }">
       <v-btn
-        dark
         text
         color="primary"
         v-bind="attrs"
         v-on="on"
       >
-        <v-icon>
-          mdi-account-circle
-        </v-icon>
+        <v-avatar color="primary" size="24">
+          <span class="white--text">A</span>
+        </v-avatar>
         <v-icon
           right
         >
@@ -40,7 +40,7 @@
           <v-list-item-action>
             <v-btn
               icon
-              :to="{name:'profile'}"
+              :to="{name:'settings'}"
             >
               <v-icon>settings</v-icon>
             </v-btn>
@@ -50,12 +50,23 @@
 
       <v-divider />
 
-      <v-list>
+      <v-list nav dense>
+        <v-list-item v-for="(link,index) in links" :key="index" link :to="{name:link.name}" nuxt>
+          <v-list-item-icon>
+            <v-icon>
+              {{ link.icon }}
+            </v-icon>
+          </v-list-item-icon>
+          <v-list-item-title>{{ link.title }}</v-list-item-title>
+        </v-list-item>
+      </v-list>
+      <v-divider />
+      <v-list dense>
         <v-list-item>
           <v-list-item-action>
             <v-switch
               v-model="darkTheme"
-              color="purple"
+              inset
             />
           </v-list-item-action>
           <v-list-item-title>Dark Mode</v-list-item-title>
@@ -89,7 +100,17 @@ export default {
   name: 'ProfileMenu',
   data: () => ({
     fav: true,
-    menu: false
+    menu: false,
+    links: [{
+      name: 'profile',
+      title: 'Profile',
+      icon: 'mdi-account'
+    },
+    {
+      name: 'messages',
+      title: 'Messages',
+      icon: 'mdi-message'
+    }]
   }),
   computed: {
     ...mapState('settings', ['dark']),
