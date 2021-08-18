@@ -25,6 +25,7 @@
     </v-navigation-drawer>
     <v-app-bar
       app
+      elevate-on-scroll
       :clipped-left="$vuetify.breakpoint.lgAndUp"
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />

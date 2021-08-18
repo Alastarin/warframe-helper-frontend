@@ -18,7 +18,7 @@ export default {
     themes: {
       dark: {
         primary: colors.blue.darken2,
-        accent: colors.purple.darken3,
+        accent: colors.grey.base,
         secondary: colors.amber.darken3,
         info: colors.teal.lighten1,
         warning: colors.amber.base,
@@ -27,7 +27,7 @@ export default {
       },
       light: {
         primary: colors.blue.darken2,
-        accent: colors.purple.darken3,
+        accent: colors.grey.base,
         secondary: colors.amber.darken3,
         info: colors.teal.lighten1,
         warning: colors.amber.base,
