@@ -9,14 +9,18 @@
     </v-row>
     <v-row>
       <v-col cols="12" sm="4">
-        <v-card>
+        <v-card hover>
           <v-card-text>
             <v-row justify="center">
               <v-col cols="auto">
                 <v-avatar
                   color="primary"
                   size="128"
-                />
+                >
+                  <span class="white--text">
+                    A
+                  </span>
+                </v-avatar>
               </v-col>
             </v-row>
             <v-row>
