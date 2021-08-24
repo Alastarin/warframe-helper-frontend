@@ -92,6 +92,7 @@ import Message from '../../components/Message'
 export default {
   name: 'Index',
   components: { Message },
+  middleware: 'authenticated',
   data () {
     return {
       selected: [2],

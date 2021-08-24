@@ -1,4 +1,5 @@
-export const state = () => ({})
+export const state = app => ({
+})
 export const getters = {}
 export const mutations = {}
 export const actions = {
