@@ -1,10 +1,17 @@
 <template>
   <v-card flat>
-    <v-card-title>
-      <span class="text-color--gradient">
-        Warframe Helper
-      </span>
-    </v-card-title>
+    <v-row justify="center" class="px-4">
+      <v-col cols="auto">
+        <nuxt-link :to="{name:'index'}" class="text-color--gradient text-h5">
+          Warframe Helper
+        </nuxt-link>
+      </v-col>
+      <v-col cols="auto">
+        <div class="text--secondary text-center">
+          Hello there! Sign Up and start managing your account
+        </div>
+      </v-col>
+    </v-row>
     <v-card-text>
       <v-form>
         <v-text-field
@@ -42,7 +49,7 @@
       <v-row dense>
         <v-col cols="12">
           <v-btn color="primary" block @click="onSubmit">
-            Create account
+            Create
           </v-btn>
         </v-col>
         <v-col cols="12">
@@ -59,9 +66,11 @@
           </v-row>
         </v-col>
         <v-col cols="12">
-          <v-btn color="secondary" text :to="{name:'auth-signin'}" block>
-            Sign In
-          </v-btn>
+          <div class="text-center">
+            <span class="text--secondary">Already have an account?</span> <nuxt-link :to="{name:'auth-signin'}" class="text-decoration-none">
+              Sign in
+            </nuxt-link>
+          </div>
         </v-col>
       </v-row>
     </v-card-actions>

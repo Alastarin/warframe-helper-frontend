@@ -1,10 +1,17 @@
 <template>
   <v-card flat>
-    <v-card-title>
-      <div class="text-color--gradient">
-        Warframe Helper
-      </div>
-    </v-card-title>
+    <v-row justify="center" class="px-4">
+      <v-col cols="auto">
+        <nuxt-link :to="{name:'index'}" class="text-color--gradient text-h5">
+          Warframe Helper
+        </nuxt-link>
+      </v-col>
+      <v-col cols="auto">
+        <div class="text--secondary text-center">
+          Hello there! Sign in and start managing your account
+        </div>
+      </v-col>
+    </v-row>
     <v-card-text>
       <v-form>
         <v-text-field
@@ -27,22 +34,76 @@
           @keyup.enter="onSubmit"
           @click:append="showPassword = !showPassword"
         />
+        <v-row align="center" justify="space-between">
+          <v-col cols="auto">
+            <v-checkbox
+              v-model="rememberMe"
+              label="Remember me"
+            />
+          </v-col>
+          <v-col cols="auto">
+            <a href="" class="text-decoration-none">
+              Forgot Password?
+            </a>
+          </v-col>
+        </v-row>
       </v-form>
     </v-card-text>
     <v-card-actions>
       <v-row dense>
         <v-col cols="12">
-          <v-btn color="primary" block @click="onSubmit">
-            Login
-          </v-btn>
+          <v-tooltip bottom>
+            <template #activator="{ on, attrs }">
+              <v-btn
+                color="primary"
+                block
+                v-bind="attrs"
+                v-on="on"
+                @click.exact="onSubmit"
+                @click.shift.exact="testLogin"
+              >
+                Sign in
+              </v-btn>
+            </template>
+            <span>Click with pressed Shift for Demo</span>
+          </v-tooltip>
         </v-col>
         <v-col cols="12">
-          <v-divider />
+          <v-row dense align="center">
+            <v-col>
+              <v-divider />
+            </v-col>
+            <v-col cols="auto">
+              Or
+            </v-col>
+            <v-col>
+              <v-divider />
+            </v-col>
+          </v-row>
         </v-col>
         <v-col cols="12">
-          <v-btn color="secondary" text :to="{name:'auth-signup'}" block>
-            Sign Up
-          </v-btn>
+          <v-row justify="center">
+            <v-col cols="6">
+              <v-btn color="secondary" class="darken-3" block>
+                Google
+              </v-btn>
+            </v-col>
+            <v-col cols="6">
+              <v-btn color="primary" class="darken-3" block>
+                Facebook
+              </v-btn>
+            </v-col>
+          </v-row>
+        </v-col>
+        <v-col>
+          <v-divider class="my-2" />
+        </v-col>
+        <v-col cols="12">
+          <div class="text-center">
+            <span class="text--secondary">Don't have an account?</span> <nuxt-link :to="{name:'auth-signup'}" class="text-decoration-none">
+              Create one
+            </nuxt-link>
+          </div>
         </v-col>
       </v-row>
     </v-card-actions>
@@ -58,6 +119,7 @@ export default {
   data () {
     return {
       showPassword: false,
+      rememberMe: false,
       user: {
         email: '',
         password: ''
@@ -65,6 +127,11 @@ export default {
     }
   },
   methods: {
+    async testLogin () {
+      await this.$apolloHelpers.onLogin('TestToken')
+      await this.openSnackbar({ text: 'Glad to see you again, testUser', type: 'success' })
+      this.$router.push({ name: 'index' })
+    },
     async onSubmit () {
       const createAuthInput = this.user
       try {

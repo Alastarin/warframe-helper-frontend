@@ -22,25 +22,44 @@
           </v-list-item-content>
         </v-list-item>
       </v-list>
+      <template #append>
+        <v-btn
+          block
+          text
+          tile
+          @click.stop="setMinMenu(!miniMenuVariant)"
+        >
+          <v-icon>mdi-{{ `chevron-${miniMenuVariant ? 'right' : 'left'}` }}</v-icon>
+          <span v-show="!miniMenuVariant">Collapse</span>
+        </v-btn>
+      </template>
     </v-navigation-drawer>
     <v-app-bar
       app
+      elevate-on-scroll
       :clipped-left="$vuetify.breakpoint.lgAndUp"
     >
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <v-btn
-        icon
-        @click.stop="setMinMenu(!miniMenuVariant)"
-      >
-        <v-icon>mdi-{{ `chevron-${miniMenuVariant ? 'right' : 'left'}` }}</v-icon>
-      </v-btn>
+      <v-app-bar-nav-icon class="rounded" :ripple="{ center: true }" @click.stop="drawer = !drawer" />
+
       <v-toolbar-title>
         <nuxt-link :to="{name:'index'}" class="text-color--gradient">
           {{ title }}
         </nuxt-link>
       </v-toolbar-title>
       <v-spacer />
-      <profile-menu />
+      <profile-menu v-if="isAuthenticated" />
+      <div v-else class="d-inline-flex mx-n3">
+        <v-col cols="auto">
+          <v-btn color="primary" small text :to="{name:'auth-signin'}">
+            Sign In
+          </v-btn>
+        </v-col>
+        <v-col cols="auto">
+          <v-btn color="primary" small :to="{name:'auth-signup'}">
+            Sign Up
+          </v-btn>
+        </v-col>
+      </div>
     </v-app-bar>
     <v-main>
       <transition
@@ -68,7 +87,6 @@ export default {
     ProfileMenu,
     Snackbar
   },
-  middleware: 'authenticated',
   data: () => ({
     icons: [
       'mdi-facebook',
@@ -106,7 +124,10 @@ export default {
     title: 'Warframe.Helper'
   }),
   computed: {
-    ...mapState('settings', ['miniMenuVariant'])
+    ...mapState('settings', ['miniMenuVariant']),
+    isAuthenticated () {
+      return !!this.$apolloHelpers.getToken()
+    }
   },
   methods: {
     ...mapActions('settings', ['setMinMenu'])

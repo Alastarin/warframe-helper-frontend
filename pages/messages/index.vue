@@ -5,7 +5,7 @@
         <v-card>
           <v-card-text>
             <v-text-field label="Search" outlined append-icon="search" clearable />
-            <v-list two-line nav class="overflow-y-auto" max-height="100%">
+            <v-list two-line nav max-height="calc(100vh - 242px)" class="overflow-y-auto">
               <v-list-item-group
                 v-model="selected"
               >
@@ -44,7 +44,7 @@
         </v-card>
       </v-col>
       <v-col cols="8">
-        <v-card>
+        <v-card class="fill-height d-flex flex-column">
           <v-card-title>
             <v-row justify="space-between">
               <v-col cols="auto">
@@ -67,38 +67,18 @@
               </v-col>
             </v-row>
           </v-card-title>
-          <v-card-text>
-            <v-row justify="start">
-              <v-col cols="auto">
-                <v-card color="accent" max-width="450">
-                  <v-card-text>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, assumenda cum dicta ducimus
-                    eligendi ex explicabo facilis, id nesciunt nisi obcaecati pariatur perferendis porro qui recusandae
-                    veritatis voluptatibus. Architecto, libero?
-                  </v-card-text>
-                  <v-card-actions>
-                    <span>Today</span>
-                  </v-card-actions>
-                </v-card>
-              </v-col>
-            </v-row>
-            <v-row justify="end">
-              <v-col cols="auto">
-                <v-card color="primary" max-width="450">
-                  <v-card-text>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dicta itaque nobis nostrum
-                    numquam obcaecati odit quo. Atque, culpa dolor dolore, harum hic inventore maiores nam, sunt vel
-                    veniam voluptatibus.
-                  </v-card-text>
-                  <v-card-actions>
-                    <span>Today</span>
-                  </v-card-actions>
-                </v-card>
-              </v-col>
-            </v-row>
+          <v-card-text class="overflow-y-auto" style="height:calc(100vh - 302px)">
+            <message v-for="(message,index) in messages" :key="index" :message="message.text" :incoming="message.incoming" />
           </v-card-text>
+          <v-spacer />
           <v-card-actions>
-            <v-text-field label="Message" placeholder="Text your message here..." append-icon="send" outlined @click:append="()=>{}" />
+            <v-text-field
+              label="Message"
+              placeholder="Text your message here..."
+              append-icon="send"
+              outlined
+              @click:append="()=>{}"
+            />
           </v-card-actions>
         </v-card>
       </v-col>
@@ -107,11 +87,50 @@
 </template>
 
 <script>
+import Message from '../../components/Message'
+
 export default {
   name: 'Index',
+  components: { Message },
+  middleware: 'authenticated',
   data () {
     return {
       selected: [2],
+      messages: [
+        {
+          incoming: true,
+          text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, ea ex magnam maxime obcaecati officiis praesentium quam repudiandae, similique soluta suscipit totam veritatis voluptatem! Adipisci dolorum porro repellendus! Impedit, suscipit.'
+        },
+        {
+          incoming: true,
+          text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, ea ex magnam maxime obcaecati officiis praesentium quam repudiandae, similique soluta suscipit totam veritatis voluptatem! Adipisci dolorum porro repellendus! Impedit, suscipit.'
+        },
+        {
+          incoming: false,
+          text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, ea ex magnam maxime obcaecati officiis praesentium quam repudiandae, similique soluta suscipit totam veritatis voluptatem! Adipisci dolorum porro repellendus! Impedit, suscipit.'
+        },
+        {
+          incoming: true,
+          text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, ea ex magnam maxime obcaecati officiis praesentium quam repudiandae, similique soluta suscipit totam veritatis voluptatem! Adipisci dolorum porro repellendus! Impedit, suscipit.'
+        },
+        {
+          incoming: true,
+          text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, ea ex magnam maxime obcaecati officiis praesentium quam repudiandae, similique soluta suscipit totam veritatis voluptatem! Adipisci dolorum porro repellendus! Impedit, suscipit.'
+        },
+        {
+          incoming: false,
+          text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, ea ex magnam maxime obcaecati officiis praesentium quam repudiandae, similique soluta suscipit totam veritatis voluptatem! Adipisci dolorum porro repellendus! Impedit, suscipit.'
+        },
+        {
+          incoming: true,
+          text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, ea ex magnam maxime obcaecati officiis praesentium quam repudiandae, similique soluta suscipit totam veritatis voluptatem! Adipisci dolorum porro repellendus! Impedit, suscipit.'
+        },
+        {
+          incoming: false,
+          text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, ea ex magnam maxime obcaecati officiis praesentium quam repudiandae, similique soluta suscipit totam veritatis voluptatem! Adipisci dolorum porro repellendus! Impedit, suscipit.'
+        }
+
+      ],
       items: [
         { header: 'Today' },
         {
@@ -142,13 +161,33 @@ export default {
           avatar: 'https://cdn.vuetifyjs.com/images/lists/5.jpg',
           title: 'Recipe to try',
           subtitle: '<span class="text--primary">Britta Holt</span> &mdash; We should eat this: Grate, Squash, Corn, and tomatillo Tacos.'
+        },
+        { divider: true, inset: true },
+        {
+          avatar: 'https://cdn.vuetifyjs.com/images/lists/5.jpg',
+          title: 'Recipe to try',
+          subtitle: '<span class="text--primary">Britta Holt</span> &mdash; We should eat this: Grate, Squash, Corn, and tomatillo Tacos.'
+        },
+        { divider: true, inset: true },
+        {
+          avatar: 'https://cdn.vuetifyjs.com/images/lists/5.jpg',
+          title: 'Recipe to try',
+          subtitle: '<span class="text--primary">Britta Holt</span> &mdash; We should eat this: Grate, Squash, Corn, and tomatillo Tacos.'
+        },
+        { divider: true, inset: true },
+        {
+          avatar: 'https://cdn.vuetifyjs.com/images/lists/5.jpg',
+          title: 'Recipe to try',
+          subtitle: '<span class="text--primary">Britta Holt</span> &mdash; We should eat this: Grate, Squash, Corn, and tomatillo Tacos.'
+        },
+        { divider: true, inset: true },
+        {
+          avatar: 'https://cdn.vuetifyjs.com/images/lists/5.jpg',
+          title: 'Recipe to try',
+          subtitle: '<span class="text--primary">Britta Holt</span> &mdash; We should eat this: Grate, Squash, Corn, and tomatillo Tacos.'
         }
       ]
     }
   }
 }
 </script>
-
-<style scoped>
-
-</style>

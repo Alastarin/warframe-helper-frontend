@@ -10,7 +10,8 @@
 
 <script>
 export default {
-  name: 'Index'
+  name: 'Index',
+  middleware: 'authenticated'
 }
 </script>
 

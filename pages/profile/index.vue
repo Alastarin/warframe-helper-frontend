@@ -97,7 +97,8 @@ export default {
   name: 'Index',
   components: {
     PageBanner
-  }
+  },
+  middleware: 'authenticated'
 }
 </script>
 
