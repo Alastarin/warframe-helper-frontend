@@ -1,6 +1,6 @@
 .auth{
   &-layout{
-    background-image: url("/images/Mesa.jpg");
+    background-image: url("~@/static/images/Mesa.jpg");
     background-size: cover;
     &__auth{
       &-card{
