@@ -1,11 +1,11 @@
 export default {
-  target: process.env.NODE_ENV === 'production' ? 'static' : 'server',
-  router: {
-    base: process.env.NODE_ENV === 'production' ? '/warframe-helper-frontend/' : '/'
-  },
-  static: {
-    prefix: 'warframe-helper-frontend'
-  },
+  // target: process.env.NODE_ENV === 'production' ? 'static' : 'server',
+  // router: {
+  //   base: process.env.NODE_ENV === 'production' ? '/warframe-helper-frontend/' : '/'
+  // },
+  // static: {
+  //   prefix: 'warframe-helper-frontend'
+  // },
   server: {
     host: 'localhost',
     port: 8000
