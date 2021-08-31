@@ -45,12 +45,16 @@ jobs:
         run: npm run generate
 
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@4.1.4
-        with:
-          repository-name: Alastarin/pages
-          token: ${{secrets.ACCESS_TOKEN}}
-          branch: main
-          folder: dist
-          clean: true
+        uses: peaceiris/actions-gh-pages@v3
+          with:
+            github_token: ${{ secrets.ACCESS_TOKEN }}
+            publish_dir: ./dist
+#        uses: JamesIves/github-pages-deploy-action@4.1.4
+#        with:
+#          repository-name: Alastarin/pages
+#          token: ${{secrets.ACCESS_TOKEN}}
+#          branch: main
+#          folder: dist
+#          clean: true
 
 

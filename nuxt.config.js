@@ -3,9 +3,6 @@ export default {
   router: {
     base: process.env.NODE_ENV === 'production' ? '/pages/' : '/'
   },
-  static: {
-    prefix: process.env.NODE_ENV === 'production' ? 'pages' : false
-  },
   server: {
     host: 'localhost',
     port: 8000
