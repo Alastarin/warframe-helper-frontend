@@ -37,18 +37,18 @@ jobs:
 
       - name: Run linter 👀
         run: npm run lint
-#
-#      - name: Run tests 🧪
-#        run: npm run test
+      #
+      #      - name: Run tests 🧪
+      #        run: npm run test
 
       - name: Generate Static files for githubPages
         run: npm run generate
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
-          with:
-            github_token: ${{ secrets.ACCESS_TOKEN }}
-            publish_dir: ./dist
+        with:
+          github_token: ${{ secrets.ACCESS_TOKEN }}
+          publish_dir: ./dist
 #        uses: JamesIves/github-pages-deploy-action@4.1.4
 #        with:
 #          repository-name: Alastarin/pages
