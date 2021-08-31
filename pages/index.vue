@@ -3,7 +3,7 @@
     <v-row>
       <v-col>
         <page-banner height="256">
-          Main Page
+          Main Page1
         </page-banner>
       </v-col>
     </v-row>
