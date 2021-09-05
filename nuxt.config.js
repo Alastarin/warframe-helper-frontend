@@ -57,7 +57,8 @@ export default {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     '@nuxtjs/apollo',
-    'cookie-universal-nuxt'
+    'cookie-universal-nuxt',
+    'portal-vue/nuxt'
   ],
   apollo: {
     errorHandler: '~/plugins/apollo-error-handler.js',

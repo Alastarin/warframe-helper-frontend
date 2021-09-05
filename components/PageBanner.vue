@@ -1,11 +1,16 @@
 <template>
-  <v-card hover class="page-banner__wrapper">
-    <v-parallax
-      :height="height"
+  <v-card
+    hover
+    dark
+  >
+    <v-img
+      class="pa-4"
       :src="src"
+      position="50% 20%"
+      :max-height="height"
     >
       <slot />
-    </v-parallax>
+    </v-img>
   </v-card>
 </template>
 
