@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container fluid>
     <v-row>
       <v-col cols="12">
         <page-banner>
@@ -74,7 +74,7 @@
       </v-col>
     </v-row>
     <v-row>
-      <v-col v-for="i in 8" :key="i" cols="3">
+      <v-col v-for="i in 54" :key="i" cols="6">
         <order-card />
       </v-col>
     </v-row>

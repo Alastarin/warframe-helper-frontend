@@ -68,12 +68,34 @@
       >
         <nuxt />
       </transition>
+      <v-footer padless>
+        <v-container fluid>
+          <v-row
+            justify="center"
+            align="center"
+          >
+            <v-col cols="auto">
+              <v-btn
+                v-for="link in links"
+                :key="link"
+                color="white"
+                text
+                class="my-2"
+              >
+                {{ link }}
+              </v-btn>
+            </v-col>
+            <v-spacer />
+            <v-col
+              class="text-center"
+              cols="auto"
+            >
+              {{ new Date().getFullYear() }} — <strong>Warframe.Helper</strong>
+            </v-col>
+          </v-row>
+        </v-container>
+      </v-footer>
     </v-main>
-    <v-footer app>
-      <div class="text-center">
-        {{ new Date().getFullYear() }}
-      </div>
-    </v-footer>
   </v-app>
 </template>
 
@@ -118,6 +140,14 @@ export default {
         title: 'Shelter',
         to: 'shelter'
       }
+    ],
+    links: [
+      'Home',
+      'About Us',
+      'Team',
+      'Services',
+      'Blog',
+      'Contact Us'
     ],
     right: true,
     rightDrawer: false,
