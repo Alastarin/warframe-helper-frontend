@@ -50,6 +50,13 @@
             <news-card />
           </v-col>
         </v-row>
+        <v-row justify="center">
+          <v-col cols="auto">
+            <v-btn color="primary" text>
+              Load more
+            </v-btn>
+          </v-col>
+        </v-row>
       </v-col>
       <v-col cols="4">
         <v-subheader>
