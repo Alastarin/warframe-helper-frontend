@@ -1,16 +1,28 @@
 <template>
-  <v-card hover class="pa-2 pb-0" v-bind="$attrs" :width="$attrs.width||150">
-    <v-sheet rounded elevation="6">
-      <v-img
-        :src="image"
-        contain
-        height="86"
-        class="rounded"
-      />
-    </v-sheet>
-    <v-card-text class="text-center subtitle-2 text-uppercase">
-      {{ title }}
-    </v-card-text>
+  <v-card
+    hover
+    class="pa-2 pb-0 overflow-hidden"
+    :width="$attrs.width || defaultWidth"
+    v-bind="$attrs"
+  >
+    <v-row justify="center" no-gutters class="fill-height">
+      <v-col cols="12">
+        <v-sheet rounded elevation="8">
+          <v-img
+            :src="image"
+            :height="imageHeight"
+            position="center top"
+            class="rounded"
+          />
+        </v-sheet>
+      </v-col>
+      <v-spacer />
+      <v-col>
+        <v-card-text class="text-center pa-2 text-uppercase">
+          {{ title }}
+        </v-card-text>
+      </v-col>
+    </v-row>
   </v-card>
 </template>
 
@@ -24,7 +36,7 @@ export default {
     },
     imageHeight: {
       type: [Number, String],
-      default: 150
+      default: 120
     },
     title: {
       type: String,
@@ -32,8 +44,8 @@ export default {
     }
   },
   computed: {
-    attr () {
-      return this.$attrs
+    defaultWidth () {
+      return 136
     }
   }
 }

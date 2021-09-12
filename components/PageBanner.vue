@@ -27,7 +27,7 @@ export default {
     height: {
       type: [String, Number],
       default () {
-        return '256'
+        return '186'
       }
     }
   }

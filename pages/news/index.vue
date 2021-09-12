@@ -3,9 +3,9 @@
     <v-row>
       <v-col>
         <page-banner>
-          <v-row>
+          <v-row align-content="space-between" class="fill-height">
             <v-col cols="12">
-              <div class="display-4">
+              <div class="display-3">
                 Main news
               </div>
             </v-col>
@@ -19,7 +19,7 @@
       </v-col>
     </v-row>
     <v-row>
-      <v-col >
+      <v-col>
         <v-row>
           <v-col v-for="i in 3" :key="i" cols="12">
             <v-card>
@@ -28,7 +28,7 @@
           </v-col>
         </v-row>
       </v-col>
-      <v-col cols="auto">
+      <v-col cols="12" sm="auto">
         <v-card>
           <v-card-text>
             <v-row justify="center">
