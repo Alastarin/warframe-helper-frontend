@@ -23,15 +23,17 @@
         </v-list-item>
       </v-list>
       <template #append>
-        <v-btn
-          block
-          text
-          tile
-          @click.stop="setMinMenu(!miniMenuVariant)"
-        >
-          <v-icon>mdi-{{ `chevron-${miniMenuVariant ? 'right' : 'left'}` }}</v-icon>
-          <span v-show="!miniMenuVariant">Collapse</span>
-        </v-btn>
+        <div class="pa-2">
+          <v-btn
+            block
+            color="accent"
+            class="rounded pa-0"
+            @click.stop="setMinMenu(!miniMenuVariant)"
+          >
+            <v-icon>mdi-{{ `chevron-${miniMenuVariant ? 'right' : 'left'}` }}</v-icon>
+            <span v-show="!miniMenuVariant">Collapse</span>
+          </v-btn>
+        </div>
       </template>
     </v-navigation-drawer>
     <v-app-bar
@@ -68,34 +70,33 @@
       >
         <nuxt />
       </transition>
-      <v-footer padless>
-        <v-container fluid>
-          <v-row
-            justify="center"
-            align="center"
-          >
-            <v-col cols="auto">
-              <v-btn
-                v-for="link in links"
-                :key="link"
-                color="white"
-                text
-                class="my-2"
-              >
-                {{ link }}
-              </v-btn>
-            </v-col>
-            <v-spacer />
-            <v-col
-              class="text-center"
-              cols="auto"
-            >
-              {{ new Date().getFullYear() }} — <strong>Warframe.Helper</strong>
-            </v-col>
-          </v-row>
-        </v-container>
-      </v-footer>
     </v-main>
+    <v-footer padless>
+      <v-container fluid>
+        <v-row
+          justify="center"
+          align="center"
+        >
+          <v-col cols="auto">
+            <v-btn
+              v-for="link in links"
+              :key="link"
+              color="white"
+              text
+            >
+              {{ link }}
+            </v-btn>
+          </v-col>
+          <v-spacer />
+          <v-col
+            class="text-center"
+            cols="auto"
+          >
+            {{ new Date().getFullYear() }} — <strong>Warframe.Helper</strong>
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-footer>
   </v-app>
 </template>
 

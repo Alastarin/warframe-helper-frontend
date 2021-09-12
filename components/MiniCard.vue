@@ -1,11 +1,28 @@
 <template>
-  <v-card hover width="150" class="pa-2 pb-0">
-    <v-sheet rounded elevation="6">
-      <v-img src="https://picsum.photos/200" max-height="150" max-width="150" contain class="rounded" />
-    </v-sheet>
-    <v-card-text class="text-center">
-      {{ title }}
-    </v-card-text>
+  <v-card
+    hover
+    class="pa-2 pb-0 overflow-hidden"
+    :width="$attrs.width || defaultWidth"
+    v-bind="$attrs"
+  >
+    <v-row justify="center" no-gutters class="fill-height">
+      <v-col cols="12">
+        <v-sheet rounded elevation="8">
+          <v-img
+            :src="image"
+            :height="imageHeight"
+            position="center top"
+            class="rounded"
+          />
+        </v-sheet>
+      </v-col>
+      <v-spacer />
+      <v-col>
+        <v-card-text class="text-center pa-2 text-uppercase">
+          {{ title }}
+        </v-card-text>
+      </v-col>
+    </v-row>
   </v-card>
 </template>
 
@@ -13,9 +30,22 @@
 export default {
   name: 'MiniCard',
   props: {
+    image: {
+      type: String,
+      default: 'https://picsum.photos/200'
+    },
+    imageHeight: {
+      type: [Number, String],
+      default: 120
+    },
     title: {
       type: String,
       default: ''
+    }
+  },
+  computed: {
+    defaultWidth () {
+      return 136
     }
   }
 }

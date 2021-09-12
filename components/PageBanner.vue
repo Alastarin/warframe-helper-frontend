@@ -21,13 +21,13 @@ export default {
     src: {
       type: [String],
       default () {
-        return 'images/Mesa.jpg'
+        return '/images/Mesa.jpg'
       }
     },
     height: {
       type: [String, Number],
       default () {
-        return '256'
+        return '186'
       }
     }
   }

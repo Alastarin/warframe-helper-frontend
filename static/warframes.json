@@ -1,0 +1,332 @@
+{
+  "data": [
+    {
+      "name": "Ash",
+      "image": "AshIcon272.png"
+    },
+    {
+      "name": "Atlas_Prime",
+      "image": "Atlas_PrimeIcon272.png"
+    },
+    {
+      "name": "Atlas",
+      "image": "AtlasIcon272.png"
+    },
+    {
+      "name": "Banshee_Prime",
+      "image": "Banshee_PrimeIcon272.png"
+    },
+    {
+      "name": "Banshee",
+      "image": "BansheeIcon272.png"
+    },
+    {
+      "name": "Baruuk",
+      "image": "BaruukIcon272.png"
+    },
+    {
+      "name": "Chroma_Prime",
+      "image": "Chroma_PrimeIcon272.png"
+    },
+    {
+      "name": "Chroma",
+      "image": "ChromaIcon272.png"
+    },
+    {
+      "name": "Ember_Prime",
+      "image": "Ember_PrimeIcon272.png"
+    },
+    {
+      "name": "Ember",
+      "image": "EmberIcon272.png"
+    },
+    {
+      "name": "Equinox",
+      "image": "EquinoxIcon272.png"
+    },
+    {
+      "name": "EquinoxPr",
+      "image": "EquinoxPrimeIcon.png"
+    },
+    {
+      "name": "Excalibur_Prime",
+      "image": "Excalibur_PrimeIcon272.png"
+    },
+    {
+      "name": "Excalibur",
+      "image": "ExcaliburIcon272.png"
+    },
+    {
+      "name": "Frost_Prime",
+      "image": "Frost_PrimeIcon272.png"
+    },
+    {
+      "name": "Frost",
+      "image": "FrostIcon272.png"
+    },
+    {
+      "name": "Gara",
+      "image": "GaraIcon272.png"
+    },
+    {
+      "name": "GaraPrime",
+      "image": "GaraPrimeIcon272.png"
+    },
+    {
+      "name": "Garuda",
+      "image": "GarudaIcon272.png"
+    },
+    {
+      "name": "Gauss",
+      "image": "GaussIcon272.png"
+    },
+    {
+      "name": "Grendel",
+      "image": "GrendelIcon272.png"
+    },
+    {
+      "name": "Harrow",
+      "image": "HarrowIcon272.png"
+    },
+    {
+      "name": "Hildryn",
+      "image": "HildrynIcon272.png"
+    },
+    {
+      "name": "Hydroid_Prime",
+      "image": "Hydroid_PrimeIcon272.png"
+    },
+    {
+      "name": "Hydroid",
+      "image": "HydroidIcon272.png"
+    },
+    {
+      "name": "Inaros",
+      "image": "InarosIcon272.png"
+    },
+    {
+      "name": "InarosPrime",
+      "image": "InarosPrimeIcon272.png"
+    },
+    {
+      "name": "Ivara_Prime",
+      "image": "Ivara_PrimeIcon272.png"
+    },
+    {
+      "name": "Ivara",
+      "image": "IvaraIcon272.png"
+    },
+    {
+      "name": "Khora",
+      "image": "KhoraIcon272.png"
+    },
+    {
+      "name": "Kings_B",
+      "image": "Kings_Bounty_2.jpg"
+    },
+    {
+      "name": "Lavos",
+      "image": "LavosIcon272.png"
+    },
+    {
+      "name": "Limbo_Prime",
+      "image": "Limbo_PrimeIcon272.png"
+    },
+    {
+      "name": "Limbo",
+      "image": "LimboIcon272.png"
+    },
+    {
+      "name": "Loki_Prime",
+      "image": "Loki_PrimeIcon272.png"
+    },
+    {
+      "name": "Loki",
+      "image": "LokiIcon272.png"
+    },
+    {
+      "name": "Mag_Prime",
+      "image": "Mag_PrimeIcon272.png"
+    },
+    {
+      "name": "Mag",
+      "image": "MagIcon272.png"
+    },
+    {
+      "name": "Mesa",
+      "image": "MesaIcon272.png"
+    },
+    {
+      "name": "MesaPrime",
+      "image": "MesaPrimeIcon272.png"
+    },
+    {
+      "name": "Mirage_Prime",
+      "image": "Mirage_PrimeIcon272.png"
+    },
+    {
+      "name": "Mirage",
+      "image": "MirageIcon272.png"
+    },
+    {
+      "name": "Nekros_Prime",
+      "image": "Nekros_PrimeIcon272.png"
+    },
+    {
+      "name": "Nekros",
+      "image": "NekrosIcon272.png"
+    },
+    {
+      "name": "Nezha",
+      "image": "NezhaIcon272.png"
+    },
+    {
+      "name": "NezhaPrime",
+      "image": "NezhaPrimeIcon272.png"
+    },
+    {
+      "name": "Nidus",
+      "image": "NidusIcon272.png"
+    },
+    {
+      "name": "Nidus",
+      "image": "NidusNewLook.png"
+    },
+    {
+      "name": "Nid",
+      "image": "NidusPrime.png"
+    },
+    {
+      "name": "NidusPrime",
+      "image": "NidusPrimeIcon272.png"
+    },
+    {
+      "name": "Nova_Prime",
+      "image": "Nova_PrimeIcon272.png"
+    },
+    {
+      "name": "Nova",
+      "image": "NovaIcon272.png"
+    },
+    {
+      "name": "Nyx_Prime",
+      "image": "Nyx_PrimeIcon272.png"
+    },
+    {
+      "name": "Nyx",
+      "image": "NyxIcon272.png"
+    },
+    {
+      "name": "Oberon_Prime",
+      "image": "Oberon_PrimeIcon272.png"
+    },
+    {
+      "name": "Oberon",
+      "image": "OberonIcon272.png"
+    },
+    {
+      "name": "Octavia",
+      "image": "OctaviaIcon272.png"
+    },
+    {
+      "name": "Octav",
+      "image": "OctaviaPrime.png"
+    },
+    {
+      "name": "Protea",
+      "image": "ProteaIcon272.png"
+    },
+    {
+      "name": "Revenant",
+      "image": "RevenantIcon272.png"
+    },
+    {
+      "name": "Rhino_Prime",
+      "image": "Rhino_PrimeIcon272.png"
+    },
+    {
+      "name": "Rhino",
+      "image": "RhinoIcon272.png"
+    },
+    {
+      "name": "Saryn_Prime",
+      "image": "Saryn_PrimeIcon272.png"
+    },
+    {
+      "name": "Saryn",
+      "image": "SarynIcon272.png"
+    },
+    {
+      "name": "Sevagoth",
+      "image": "SevagothIcon272.png"
+    },
+    {
+      "name": "Titania",
+      "image": "TitaniaIcon272.png"
+    },
+    {
+      "name": "TitaniaPr",
+      "image": "TitaniaPrimeMain.png"
+    },
+    {
+      "name": "Trinity_Prime",
+      "image": "Trinity_PrimeIcon272.png"
+    },
+    {
+      "name": "Trinity",
+      "image": "TrinityIcon272.png"
+    },
+    {
+      "name": "Valkyr_Prime",
+      "image": "Valkyr_PrimeIcon272.png"
+    },
+    {
+      "name": "Valkyr",
+      "image": "ValkyrIcon272.png"
+    },
+    {
+      "name": "Vauban_Prime",
+      "image": "Vauban_PrimeIcon272.png"
+    },
+    {
+      "name": "Vauban",
+      "image": "VaubanIcon272.png"
+    },
+    {
+      "name": "Volt_Prime",
+      "image": "Volt_PrimeIcon272.png"
+    },
+    {
+      "name": "Volt",
+      "image": "VoltIcon272.png"
+    },
+    {
+      "name": "Wisp",
+      "image": "WispIcon272.png"
+    },
+    {
+      "name": "Wukong_Prime",
+      "image": "Wukong_PrimeIcon272.png"
+    },
+    {
+      "name": "Wukong",
+      "image": "WukongIcon272.png"
+    },
+    {
+      "name": "Xaku",
+      "image": "XakuIcon272.png"
+    },
+    {
+      "name": "Yareli",
+      "image": "YareliIcon272.png"
+    },
+    {
+      "name": "Zephyr_Prime",
+      "image": "Zephyr_PrimeIcon272.png"
+    },
+    {
+      "name": "Zephyr",
+      "image": "ZephyrIcon272.png"
+    }
+  ]
+}
