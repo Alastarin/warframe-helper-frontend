@@ -3,7 +3,7 @@
     v-model="menu"
     :close-on-content-click="true"
     :nudge-width="200"
-    max-width="300"
+    max-width="340"
     offset-x
     offset-y
   >
@@ -57,21 +57,12 @@
               {{ link.icon }}
             </v-icon>
           </v-list-item-icon>
-          <v-list-item-title>{{ link.title }}</v-list-item-title>
+          <v-list-item-content>
+            <v-list-item-title>{{ link.title }}</v-list-item-title>
+          </v-list-item-content>
         </v-list-item>
       </v-list>
       <v-divider />
-      <v-list dense>
-        <v-list-item>
-          <v-list-item-action>
-            <v-switch
-              v-model="darkTheme"
-              inset
-            />
-          </v-list-item-action>
-          <v-list-item-title>Dark Mode</v-list-item-title>
-        </v-list-item>
-      </v-list>
 
       <v-card-actions>
         <v-spacer />
@@ -124,9 +115,7 @@ export default {
       }
     }
   },
-  created () {
-    this.$vuetify.theme.dark = this.dark
-  },
+
   methods: {
     ...mapActions('settings', ['setDark']),
     async onLogout () {

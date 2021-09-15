@@ -9,7 +9,11 @@
         </page-banner>
       </v-col>
     </v-row>
-    <v-subheader>Most popular shelter's</v-subheader>
+    <v-row>
+      <v-col>
+        <heading>Most popular shelter's</heading>
+      </v-col>
+    </v-row>
     <v-row>
       <v-col v-for="i in 3" :key="i" cols="4">
         <shelter-card background="/images/Mesa.jpg" />
@@ -22,9 +26,10 @@
 
 import ShelterCard from '../../components/ShelterCard'
 import PageBanner from '../../components/PageBanner'
+import Heading from '../../components/Heading'
 
 export default {
   name: 'Index',
-  components: { PageBanner, ShelterCard }
+  components: { Heading, PageBanner, ShelterCard }
 }
 </script>

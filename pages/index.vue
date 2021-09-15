@@ -17,9 +17,13 @@
         </page-banner>
       </v-col>
     </v-row>
-    <v-subheader>
-      Shelter
-    </v-subheader>
+    <v-row>
+      <v-col>
+        <heading>
+          Top 10 shelter's
+        </heading>
+      </v-col>
+    </v-row>
     <v-slide-group show-arrows>
       <v-slide-item
         v-for="n in 25"
@@ -41,10 +45,14 @@
     </v-slide-group>
 
     <v-row>
-      <v-col cols="8">
-        <v-subheader>
-          News
-        </v-subheader>
+      <v-col cols="12" sm="8">
+        <v-row>
+          <v-col>
+            <heading>
+              News
+            </heading>
+          </v-col>
+        </v-row>
         <v-row>
           <v-col v-for="i in 5" :key="i" cols="12">
             <news-card />
@@ -58,10 +66,14 @@
           </v-col>
         </v-row>
       </v-col>
-      <v-col cols="4">
-        <v-subheader>
-          Timers
-        </v-subheader>
+      <v-col cols="12" sm="4">
+        <v-row>
+          <v-col>
+            <heading>
+              Timers
+            </heading>
+          </v-col>
+        </v-row>
         <v-row>
           <v-col v-for="i in 5" :key="i" cols="12">
             <v-card hover>
@@ -79,10 +91,12 @@
 import PageBanner from '../components/PageBanner'
 import MiniCard from '../components/MiniCard'
 import NewsCard from '../components/NewsCard'
+import Heading from '../components/Heading'
 
 export default {
   name: 'Index',
   components: {
+    Heading,
     NewsCard,
     PageBanner,
     MiniCard

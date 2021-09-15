@@ -14,9 +14,22 @@
     </v-row>
     <v-row justify="space-between" align="center">
       <v-col cols="auto">
-        <v-subheader>
+        <heading>
           Warframes
-        </v-subheader>
+        </heading>
+      </v-col>
+      <v-col cols="auto">
+        <v-autocomplete
+          v-model="select"
+          :loading="loading"
+          :items="items"
+          :search-input.sync="search"
+          cache-items
+          hide-no-data
+          hide-details
+          label="Search"
+          solo
+        />
       </v-col>
       <v-col cols="auto">
         <v-btn-toggle dense>
@@ -50,15 +63,29 @@
 import { mapState } from 'vuex'
 import PageBanner from '../../../components/PageBanner'
 import MiniCard from '../../../components/MiniCard'
+import Heading from '../../../components/Heading'
 
 export default {
   name: 'Index',
   components: {
+    Heading,
     PageBanner,
     MiniCard
   },
+  data () {
+    return {
+      select: '',
+      loading: false,
+      items: []
+    }
+  },
   computed: {
     ...mapState('warframes', ['warframes'])
+  },
+  methods: {
+    search () {
+      return ''
+    }
   }
 }
 </script>

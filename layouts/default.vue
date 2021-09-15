@@ -49,6 +49,12 @@
         </nuxt-link>
       </v-toolbar-title>
       <v-spacer />
+      <v-btn text :color="dark? 'primary' : ''" @click="darkTheme =! darkTheme">
+        <v-icon>
+          mdi-theme-light-dark
+        </v-icon>
+      </v-btn>
+      <v-divider class="mx-2" vertical inset />
       <profile-menu v-if="isAuthenticated" />
       <div v-else class="d-inline-flex mx-n3">
         <v-col cols="auto">
@@ -104,6 +110,7 @@
 import { mapActions, mapState } from 'vuex'
 import Snackbar from '../components/Snackbar'
 import ProfileMenu from '~/components/ProfileMenu'
+
 export default {
   name: 'DefaultLayout',
   components: {
@@ -155,13 +162,26 @@ export default {
     title: 'Warframe.Helper'
   }),
   computed: {
-    ...mapState('settings', ['miniMenuVariant']),
+    ...mapState('settings', ['miniMenuVariant', 'dark']),
+
     isAuthenticated () {
       return !!this.$apolloHelpers.getToken()
+    },
+    darkTheme: {
+      get () {
+        return this.dark
+      },
+      set (newVal) {
+        this.$vuetify.theme.dark = newVal
+        this.setDark(newVal)
+      }
     }
   },
+  created () {
+    this.$vuetify.theme.dark = this.dark
+  },
   methods: {
-    ...mapActions('settings', ['setMinMenu'])
+    ...mapActions('settings', ['setMinMenu', 'setDark'])
 
   }
 }

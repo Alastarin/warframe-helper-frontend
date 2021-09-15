@@ -4,6 +4,7 @@
       <v-col cols="12">
         <page-banner>
           <v-row
+            class="fill-height"
             justify="center"
             align="center"
           >
