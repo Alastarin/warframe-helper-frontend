@@ -18,24 +18,28 @@
           <v-col cols="12" sm="8">
             <v-card height="100%">
               <v-card-title>
-                Description
+                {{ $route.params.id }}
               </v-card-title>
-              <v-container fluid>
+              <v-card-text>
                 <v-row>
-                  <v-col cols="auto">
-                    <v-subheader>Stats</v-subheader>
+                  <v-col cols="12">
+                    Ash is great for players looking for a stealthier approach to combat. lethal abilities are
+                    complemented by powers of distraction.
                   </v-col>
                 </v-row>
                 <v-row>
-                  <v-col cols="12">
-                    <v-card>
-                      <v-card-text>
-                        aafsaf
+                  <v-col v-for="(param,index) in params" :key="index">
+                    <v-card outlined hover>
+                      <v-card-text class="text-center">
+                        <div class="text-h6">
+                          {{ param.value }}
+                        </div>
+                        <div>{{ param.name }}</div>
                       </v-card-text>
                     </v-card>
                   </v-col>
                 </v-row>
-              </v-container>
+              </v-card-text>
             </v-card>
           </v-col>
         </v-row>
@@ -48,9 +52,11 @@
                     <v-sheet rounded elevation="8">
                       <v-img :src="image" class="rounded" height="136" width="136" />
                     </v-sheet>
-                    <v-chip label link class="mt-4">
-                      25 | 150
-                    </v-chip>
+                    <v-card>
+                      <v-card-text class="pa-2">
+                        25 | 150
+                      </v-card-text>
+                    </v-card>
                   </v-col>
                   <v-col>
                     <v-card-title>
@@ -123,7 +129,11 @@ export default {
   },
   data () {
     return {
-      show: false
+      show: false,
+      params: [{ name: 'Health', value: 100 },
+        { name: 'Armor', value: 150 },
+        { name: 'Energy', value: 65 },
+        { name: 'Shield', value: 50 }]
     }
   },
   computed: {

@@ -19,7 +19,8 @@
             :to="{name:'wiki-warframes-id',params:{id:warframe.name}}"
             width="auto"
             height="100%"
-            :color="$route.params.id===warframe.name ? 'accent': ''"
+            :dark="$route.params.id===warframe.name"
+            :color="$route.params.id===warframe.name ? 'primary': ''"
           />
         </v-col>
       </v-row>
