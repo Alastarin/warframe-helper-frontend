@@ -84,12 +84,18 @@
         <v-col cols="12">
           <v-row justify="center">
             <v-col cols="6">
-              <v-btn color="secondary" class="darken-3" block>
+              <v-btn color="secondary" class="darken-2" block>
+                <v-icon left>
+                  mdi-google
+                </v-icon>
                 Google
               </v-btn>
             </v-col>
             <v-col cols="6">
-              <v-btn color="primary" class="darken-3" block>
+              <v-btn color="primary" class="darken-2" block>
+                <v-icon left>
+                  mdi-facebook
+                </v-icon>
                 Facebook
               </v-btn>
             </v-col>
